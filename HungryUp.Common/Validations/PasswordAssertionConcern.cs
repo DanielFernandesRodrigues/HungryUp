@@ -14,6 +14,12 @@ namespace GameEndpoints.Common.Validations
             AssertionConcern.AssertArgumentNotNull(password, ErrorMessages.InvalidUserPassword);
         }
 
+        public static void AssertIsSame(string password, string confirmPassword)
+        {
+            if (password != Encrypt(confirmPassword))
+                throw new Exception(ErrorMessages.InvalidCredentials);
+        }
+
         public static string Encrypt(string password)
         {
             password += "|HurryUp";

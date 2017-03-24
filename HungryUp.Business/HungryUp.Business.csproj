@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{319B9762-5F75-4215-842C-283FD09FCA80}</ProjectGuid>
+    <ProjectGuid>{2105D511-1398-4EB6-854E-A0AF8E792C3D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HungryUp.Domain</RootNamespace>
-    <AssemblyName>HungryUp.Domain</AssemblyName>
+    <RootNamespace>HungryUp.Business</RootNamespace>
+    <AssemblyName>HungryUp.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,18 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\Repositories\IUserRepository.cs" />
-    <Compile Include="Contracts\Services\IUserService.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HungryUp.Common\HungryUp.Common.csproj">
       <Project>{3a074552-a8f2-4c7d-97a6-2fbfbde32809}</Project>
       <Name>HungryUp.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HungryUp.Domain\HungryUp.Domain.csproj">
+      <Project>{319b9762-5f75-4215-842c-283fd09fca80}</Project>
+      <Name>HungryUp.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
