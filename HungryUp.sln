@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HungryUp.Domain", "HungryUp.Domain\HungryUp.Domain.csproj", "{319B9762-5F75-4215-842C-283FD09FCA80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HungryUp.Tests", "HungryUp.Tests\HungryUp.Tests.csproj", "{D13A8FDB-071F-47C8-A120-EB8C7F550DC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HungryUp.Common", "HungryUp.Common\HungryUp.Common.csproj", "{3A074552-A8F2-4C7D-97A6-2FBFBDE32809}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{319B9762-5F75-4215-842C-283FD09FCA80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319B9762-5F75-4215-842C-283FD09FCA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319B9762-5F75-4215-842C-283FD09FCA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319B9762-5F75-4215-842C-283FD09FCA80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D13A8FDB-071F-47C8-A120-EB8C7F550DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D13A8FDB-071F-47C8-A120-EB8C7F550DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D13A8FDB-071F-47C8-A120-EB8C7F550DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D13A8FDB-071F-47C8-A120-EB8C7F550DC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A074552-A8F2-4C7D-97A6-2FBFBDE32809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A074552-A8F2-4C7D-97A6-2FBFBDE32809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A074552-A8F2-4C7D-97A6-2FBFBDE32809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A074552-A8F2-4C7D-97A6-2FBFBDE32809}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
