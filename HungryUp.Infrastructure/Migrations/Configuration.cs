@@ -1,9 +1,7 @@
 namespace HungryUp.Infrastructure.Migrations
 {
-    using System;
-    using System.Data.Entity;
+    using HungryUp.Domain.Model;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<HungryUp.Infrastructure.Data.AppDataContext>
     {
@@ -14,18 +12,19 @@ namespace HungryUp.Infrastructure.Migrations
 
         protected override void Seed(HungryUp.Infrastructure.Data.AppDataContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Restaurants.AddOrUpdate(p => p.Name,
+                  new Restaurant("Camobi Churrascaria") { RestaurantId = 1 }
+                , new Restaurant("Camoburguer") { RestaurantId = 2 }
+                , new Restaurant("Nélia Lanches") { RestaurantId = 3 }
+                , new Restaurant("Due Frateli") { RestaurantId = 4 }
+                , new Restaurant("Via Fornale") { RestaurantId = 5 }
+                , new Restaurant("Floriano Lanches") { RestaurantId = 6 }
+                , new Restaurant("Piu Piu Lanches") { RestaurantId = 7 }
+                , new Restaurant("Porto Belo") { RestaurantId = 8 }
+                , new Restaurant("Hellios") { RestaurantId = 9 }
+                , new Restaurant("Etnias") { RestaurantId = 10 }
+                , new Restaurant("Dariu Lanches") { RestaurantId = 11 }
+                );
         }
     }
 }

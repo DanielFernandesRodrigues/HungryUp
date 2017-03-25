@@ -13,6 +13,8 @@ namespace HungryUp.Infrastructure.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<ChoiceHistory> ChoiceHistories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,6 +25,8 @@ namespace HungryUp.Infrastructure.Data
                 .Configure(p => p.HasMaxLength(100));
 
             modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Configurations.Add(new RestaurantMap());
+            modelBuilder.Configurations.Add(new ChoiceHistoryMap());
         }
     }
 }

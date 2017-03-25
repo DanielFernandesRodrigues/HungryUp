@@ -39,7 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Repositories\IChoiceHistoryRepository.cs" />
+    <Compile Include="Contracts\Repositories\IRestaurantRepository.cs" />
     <Compile Include="Contracts\Repositories\IUserRepository.cs" />
+    <Compile Include="Contracts\Services\IRestaurantService.cs" />
     <Compile Include="Contracts\Services\IUserService.cs" />
     <Compile Include="Model\ChoiceHistory.cs" />
     <Compile Include="Model\Restaurant.cs" />
