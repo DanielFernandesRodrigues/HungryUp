@@ -16,12 +16,13 @@ namespace HungryUp.Infrastructure.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasColumnType("varchar"));
 
-            modelBuilder.Entity<User>()
-                .HasRequired(s => s.Email);
-            modelBuilder.Entity<User>()
-                .HasRequired(s => s.Password);
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasMaxLength(100));
+
+            modelBuilder.Configurations.Add(new UserMap());
         }
     }
 }

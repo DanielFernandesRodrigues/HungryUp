@@ -123,7 +123,16 @@
   <data name="InvalidEmail" xml:space="preserve">
     <value>E-mail informado é inválido.</value>
   </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>Nome do usuário é inválido.</value>
+  </data>
   <data name="InvalidUserPassword" xml:space="preserve">
     <value>Senha informada está incorreta.</value>
+  </data>
+  <data name="UserAlreadyExists" xml:space="preserve">
+    <value>Usuário já existente.</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Usuário não encontrado.</value>
   </data>
 </root>

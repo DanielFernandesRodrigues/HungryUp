@@ -11,13 +11,13 @@ namespace GameEndpoints.Common.Validations
     {
         public static void AssertIsValid(string password)
         {
-            AssertionConcern.AssertArgumentNotNull(password, ErrorMessages.InvalidUserPassword);
+            AssertionConcern.AssertArgumentNotEmpty(password, ErrorMessages.InvalidUserPassword);
         }
 
-        public static void AssertIsSame(string password, string confirmPassword)
+        public static void AssertPasswordIsSame(string password, string confirmPassword)
         {
             if (password != Encrypt(confirmPassword))
-                throw new Exception(ErrorMessages.InvalidCredentials);
+                throw new Exception(ErrorMessages.InvalidUserPassword);
         }
 
         public static string Encrypt(string password)

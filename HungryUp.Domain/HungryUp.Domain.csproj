@@ -41,7 +41,10 @@
   <ItemGroup>
     <Compile Include="Contracts\Repositories\IUserRepository.cs" />
     <Compile Include="Contracts\Services\IUserService.cs" />
+    <Compile Include="Model\ChoiceHistory.cs" />
+    <Compile Include="Model\Restaurant.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Vote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,9 +11,7 @@ namespace HungryUp.Infrastructure.Data.Map
             ToTable("User");
 
             Property(x => x.UserId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            Property(x => x.Email).HasMaxLength(150);
-            Property(x => x.Password).HasMaxLength(15);
+            Property(x => x.Email).HasMaxLength(150).IsRequired();
         }
     }
 }
