@@ -122,5 +122,14 @@ namespace HungryUp.Common.Resources {
                 return ResourceManager.GetString("UserNotFound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você já votou hoje..
+        /// </summary>
+        public static string YouAlreadyVoteToday {
+            get {
+                return ResourceManager.GetString("YouAlreadyVoteToday", resourceCulture);
+            }
+        }
     }
 }

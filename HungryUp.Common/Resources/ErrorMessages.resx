@@ -138,4 +138,7 @@
   <data name="UserNotFound" xml:space="preserve">
     <value>Usuário não encontrado.</value>
   </data>
+  <data name="YouAlreadyVoteToday" xml:space="preserve">
+    <value>Você já votou hoje.</value>
+  </data>
 </root>

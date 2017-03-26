@@ -4,6 +4,7 @@ using HungryUp.Domain.Contracts.Repositories;
 using HungryUp.Domain.Contracts.Services;
 using HungryUp.Domain.Model;
 using System;
+using System.Collections.Generic;
 
 namespace HungryUp.Business.Services
 {
@@ -28,15 +29,21 @@ namespace HungryUp.Business.Services
 
         public Vote RegisterVote(string email, long restaurantId)
         {
-            User user = _userService.GetByEmail(email);
-            
+            User user = _userService.GetByEmail(email);            
+            AssertionConcern.AssertArgumentNotNull(user, ErrorMessages.UserNotFound);
             Restaurant restaurant = _restaurantService.GetById(restaurantId);
+            AssertionConcern.AssertArgumentNotNull(restaurant, ErrorMessages.RestaurantNotFound);
+
+            Vote vote = _repository.GetVote(DateTime.Now, user);
+            AssertionConcern.AssertArgumentFalse(vote != null, ErrorMessages.YouAlreadyVoteToday);
             
-            Vote vote = new Vote(user, restaurant);
-
-            vote.Validate();
-
+            vote = new Vote(user, restaurant);
             return _repository.RegisterVote(vote);
+        }
+
+        public IList<Vote> GetAllTodayVotes()
+        {
+            return _repository.GetAllVotesByDate(DateTime.Now);
         }
 
         public void Dispose()

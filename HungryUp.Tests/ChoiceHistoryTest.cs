@@ -32,9 +32,14 @@ namespace HungryUp.Tests
         {
             DateTime dataAtual = DateTime.Now;
             DateTime startWeek = dataAtual.StartOfWeek(DayOfWeek.Sunday);
-            DateTime endWeek = startWeek.AddDays(6);
+            DateTime endWeek = startWeek.AddDays((int)DayOfWeek.Saturday);
             IList<ChoiceHistory> choiceHistory = _repository.GetFromCurrentWeek(startWeek, endWeek);
-            Assert.IsNotNull(choiceHistory);
+        }
+
+        [TestMethod]
+        public void TodaySessionIsOpen()
+        {
+            ChoiceHistory choiceHistory = _repository.GetFromDate(DateTime.Now);
         }
     }
 }

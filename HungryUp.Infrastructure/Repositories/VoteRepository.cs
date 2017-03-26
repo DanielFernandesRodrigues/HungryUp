@@ -2,6 +2,7 @@
 using HungryUp.Domain.Model;
 using HungryUp.Infrastructure.Data;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
@@ -31,6 +32,14 @@ namespace HungryUp.Infrastructure.Repositories
             _context.Votes.Add(vote);
             _context.SaveChanges();
             return vote;
+        }
+
+        public IList<Vote> GetAllVotesByDate(DateTime date)
+        {
+            return _context.Votes.Where(x => DbFunctions.TruncateTime(x.Date) == DbFunctions.TruncateTime(date))
+                .Include(x => x.User)
+                .Include(x => x.Restaurant)
+                .ToList();
         }
 
         public void Dispose()

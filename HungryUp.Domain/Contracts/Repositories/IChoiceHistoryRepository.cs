@@ -7,5 +7,6 @@ namespace HungryUp.Domain.Contracts.Repositories
     public interface IChoiceHistoryRepository : IDisposable
     {
         IList<ChoiceHistory> GetFromCurrentWeek(DateTime startWeek, DateTime endWeek);
+        ChoiceHistory GetFromDate(DateTime date);
     }
 }

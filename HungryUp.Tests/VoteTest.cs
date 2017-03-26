@@ -6,6 +6,7 @@ using HungryUp.Infrastructure.Data;
 using HungryUp.Infrastructure.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace HungryUp.Tests
 {
@@ -37,8 +38,15 @@ namespace HungryUp.Tests
         [TestMethod]
         public void RegisterVote()
         {
-            Vote vote = _service.RegisterVote(email, restaurantId);
-            Assert.IsNotNull(vote);
+            try
+            {
+                Vote vote = _service.RegisterVote(email, restaurantId);
+                Assert.IsNotNull(vote);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
         }
 
         [TestMethod]
@@ -47,6 +55,19 @@ namespace HungryUp.Tests
             try
             {
                 Vote vote = _service.GetTodayVote(email);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void GetAllTodayVotes()
+        {
+            try
+            {
+                IList<Vote> vote = _service.GetAllTodayVotes();
             }
             catch (Exception ex)
             {

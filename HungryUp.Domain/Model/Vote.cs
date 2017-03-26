@@ -19,11 +19,5 @@ namespace HungryUp.Domain.Model
             this.User = user;
             this.Restaurant = restaurant;
         }
-
-        public void Validate()
-        {
-            AssertionConcern.AssertArgumentNotNull(this.User, ErrorMessages.UserNotFound);
-            AssertionConcern.AssertArgumentNotNull(this.Restaurant, ErrorMessages.RestaurantNotFound);
-        }
     }
 }
