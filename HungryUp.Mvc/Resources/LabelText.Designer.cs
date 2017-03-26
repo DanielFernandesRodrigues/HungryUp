@@ -79,7 +79,7 @@ namespace HungryUp.Mvc.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ScoreBoard of votes.
+        ///   Looks up a localized string similar to ScoreBoard of Votes.
         /// </summary>
         public static string ScoreBoard {
             get {

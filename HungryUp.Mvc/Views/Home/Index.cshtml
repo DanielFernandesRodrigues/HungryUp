@@ -15,14 +15,14 @@
             <table style="width:100%;">
                 <tr>
                     <th>@LabelText.Restaurant</th>
-                    <th>@LabelText.Vote</th>
+                    <th style="text-align:center">@LabelText.Vote</th>
                 </tr>
                 @foreach (var item in Model.Restaurants)
                 {
                     <tr>
                         <td>@item.Name</td>
                         <td>
-                            @Html.ActionLink("Vote", "Vote", new { id = @item.RestaurantId}, new {@class = "btn btn-default"})
+                            @Html.ActionLink("Vote", "Vote", new { id = @item.RestaurantId}, new {@class = "btn btn-default", @style = "width:100%"})
                         </td>
                     </tr>
                 }
@@ -37,12 +37,12 @@
             <table style="width:100%;">
                 <tr>
                     <th>@LabelText.Restaurant</th>
-                    <th>@LabelText.Votes</th>
+                    <th style="text-align:center">@LabelText.Votes</th>
                 </tr>
                 @foreach (var item in Model.ScoreBoard) {
                     <tr>
                         <td>@item.Restaurant</td>
-                        <td>@item.Votes</td>
+                        <td style="text-align:center">@item.Votes</td>
                     </tr>
                 }
             </table>

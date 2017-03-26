@@ -1,5 +1,6 @@
 ﻿using HungryUp.Domain.Model;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
 namespace HungryUp.Infrastructure.Data.Map
@@ -11,7 +12,10 @@ namespace HungryUp.Infrastructure.Data.Map
             ToTable("User");
 
             Property(x => x.UserId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.Email).HasMaxLength(150).IsRequired();
+            Property(x => x.Email).HasMaxLength(150).IsRequired()
+                .HasColumnAnnotation(
+                    "Index",
+                    new IndexAnnotation(new IndexAttribute("IX_Email") { IsUnique = true }));
         }
     }
 }

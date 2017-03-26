@@ -28,7 +28,12 @@ namespace HungryUp.Infrastructure.Migrations
                 );
 
             context.Users.AddOrUpdate(p => p.Name,
-                new User("DbServer Test", "dbserver_test@dbserver.com", PasswordAssertionConcern.Encrypt("dbserver_teste")));
+                new User("DbServer Test", "dbserver_test@dbserver.com", PasswordAssertionConcern.Encrypt("dbserver_teste")) { UserId = 1 },
+                new User("Daniel", "daniel@dbserver.com", PasswordAssertionConcern.Encrypt("ruafbf")) { UserId = 2 },
+                new User("Felipe", "felipe@dbserver.com", PasswordAssertionConcern.Encrypt("ruafbf")) { UserId = 3 },
+                new User("Igor", "igor@dbserver.com", PasswordAssertionConcern.Encrypt("ruafbf")) { UserId = 4 },
+                new User("Boscaini", "boscaini@dbserver.com", PasswordAssertionConcern.Encrypt("ruafbf")) { UserId = 5 },
+                new User("Elzon", "elzon@dbserver.com", PasswordAssertionConcern.Encrypt("ruafbf")) { UserId = 6 });
         }
     }
 }

@@ -48,5 +48,26 @@ namespace HungryUp.Mvc.Controllers
 
             return View(model);
         }
+
+        public ActionResult Vote(long id)
+        {
+            try
+            {
+                Vote vote = _voteService.RegisterVote(User.Identity.Name, id);
+            }
+            catch (Exception ex)
+            {
+                TempData["VoteMessage"] = ex.Message;
+            }
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _choiceService.Dispose();
+            _voteService.Dispose();
+            _restaurantService.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }
