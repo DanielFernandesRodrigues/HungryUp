@@ -45,6 +45,11 @@ namespace HungryUp.Business.Services
         {
             return _repository.GetAllVotesByDate(DateTime.Now);
         }
+        
+        public IList<ScoreBoard> GetAllTodayVotesGroupByRestaurant()
+        {
+            return _repository.GetAllVotesByDateGroupByRestaurant(DateTime.Now);
+        }
 
         public void Dispose()
         {

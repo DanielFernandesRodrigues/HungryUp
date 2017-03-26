@@ -43,11 +43,13 @@
     <Compile Include="Contracts\Repositories\IRestaurantRepository.cs" />
     <Compile Include="Contracts\Repositories\IUserRepository.cs" />
     <Compile Include="Contracts\Repositories\IVoteRepository.cs" />
+    <Compile Include="Contracts\Services\IChoiceHistoryService.cs" />
     <Compile Include="Contracts\Services\IRestaurantService.cs" />
     <Compile Include="Contracts\Services\IUserService.cs" />
     <Compile Include="Contracts\Services\IVoteService.cs" />
     <Compile Include="Model\ChoiceHistory.cs" />
     <Compile Include="Model\Restaurant.cs" />
+    <Compile Include="Model\ScoreBoard.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Vote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

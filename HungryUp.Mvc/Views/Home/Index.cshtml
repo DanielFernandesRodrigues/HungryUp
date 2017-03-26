@@ -1,0 +1,51 @@
+﻿@using HungryUp.Mvc.Resources
+@using HungryUp.Mvc.ViewModel
+@model HomeViewModel
+@{
+    ViewBag.Title = "Hungry";
+}
+
+<h3>@Model.TitleMessage</h3>
+<hr />
+<div class="row">
+    @if (Model.Restaurants != null && Model.Restaurants.Count > 0)
+    {
+        <div class="col-md-6">
+            <h4>@LabelText.AvaiableRestaraunts</h4>
+            <table style="width:100%;">
+                <tr>
+                    <th>@LabelText.Restaurant</th>
+                    <th>@LabelText.Vote</th>
+                </tr>
+                @foreach (var item in Model.Restaurants)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            @Html.ActionLink("Vote", "Vote", new { id = @item.RestaurantId}, new {@class = "btn btn-default"})
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+    
+    @if (Model.ScoreBoard != null && Model.ScoreBoard.Count > 0)
+    {
+        <div class="col-md-6">
+            <h4>@LabelText.ScoreBoard</h4>
+            <table style="width:100%;">
+                <tr>
+                    <th>@LabelText.Restaurant</th>
+                    <th>@LabelText.Votes</th>
+                </tr>
+                @foreach (var item in Model.ScoreBoard) {
+                    <tr>
+                        <td>@item.Restaurant</td>
+                        <td>@item.Votes</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</div>

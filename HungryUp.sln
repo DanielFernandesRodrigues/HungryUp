@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HungryUp.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HungryUp.Business", "HungryUp.Business\HungryUp.Business.csproj", "{2105D511-1398-4EB6-854E-A0AF8E792C3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HungryUp.Web", "HungryUp.Web\HungryUp.Web.csproj", "{5DD41F20-B293-4413-A8D6-4B2ABFFF3FB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HungryUp.Mvc", "HungryUp.Mvc\HungryUp.Mvc.csproj", "{97B90E5E-37D0-447F-913C-2A58B40C53D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{2105D511-1398-4EB6-854E-A0AF8E792C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2105D511-1398-4EB6-854E-A0AF8E792C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2105D511-1398-4EB6-854E-A0AF8E792C3D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5DD41F20-B293-4413-A8D6-4B2ABFFF3FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DD41F20-B293-4413-A8D6-4B2ABFFF3FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DD41F20-B293-4413-A8D6-4B2ABFFF3FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DD41F20-B293-4413-A8D6-4B2ABFFF3FB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97B90E5E-37D0-447F-913C-2A58B40C53D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B90E5E-37D0-447F-913C-2A58B40C53D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B90E5E-37D0-447F-913C-2A58B40C53D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B90E5E-37D0-447F-913C-2A58B40C53D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,7 @@
-﻿using HungryUp.Common.Extensions;
+﻿using HungryUp.Business.Services;
+using HungryUp.Common.Extensions;
 using HungryUp.Domain.Contracts.Repositories;
+using HungryUp.Domain.Contracts.Services;
 using HungryUp.Domain.Model;
 using HungryUp.Infrastructure.Data;
 using HungryUp.Infrastructure.Repositories;
@@ -12,34 +14,32 @@ namespace HungryUp.Tests
     [TestClass]
     public class ChoiceHistoryTest
     {
-        IChoiceHistoryRepository _repository;
+        IChoiceHistoryService _service;
 
         [TestInitialize]
         public void InitializeTests()
         {
             AppDataContext _context = new AppDataContext();
-            _repository = new ChoiceHistoryRepository(_context);
+            IChoiceHistoryRepository _repository = new ChoiceHistoryRepository(_context);
+            _service = new ChoiceHistoryService(_repository);
         }
 
         [TestCleanup]
         public void CleanDatabaseResources()
         {
-            _repository.Dispose();
+            _service.Dispose();
         }
 
         [TestMethod]
         public void GetHistoryFromCurrentWeek()
-        {
-            DateTime dataAtual = DateTime.Now;
-            DateTime startWeek = dataAtual.StartOfWeek(DayOfWeek.Sunday);
-            DateTime endWeek = startWeek.AddDays((int)DayOfWeek.Saturday);
-            IList<ChoiceHistory> choiceHistory = _repository.GetFromCurrentWeek(startWeek, endWeek);
+        {            
+            IList<ChoiceHistory> choiceHistory = _service.GetFromCurrentWeek();
         }
 
         [TestMethod]
         public void TodaySessionIsOpen()
         {
-            ChoiceHistory choiceHistory = _repository.GetFromDate(DateTime.Now);
+            ChoiceHistory choiceHistory = _service.GetTodayChoiceHistory();
         }
     }
 }

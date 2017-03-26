@@ -8,6 +8,7 @@ namespace HungryUp.Domain.Contracts.Services
     {
         Vote GetTodayVote(string email);
         IList<Vote> GetAllTodayVotes();
+        IList<ScoreBoard> GetAllTodayVotesGroupByRestaurant();
         Vote RegisterVote(string email, long restaurantId);
     }
 }

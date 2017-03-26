@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace HungryUp.Web
+namespace HungryUp.Mvc
 {
     public class BundleConfig
     {
