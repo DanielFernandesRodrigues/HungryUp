@@ -129,6 +129,9 @@
   <data name="InvalidUserPassword" xml:space="preserve">
     <value>Senha informada está incorreta.</value>
   </data>
+  <data name="RestaurantNotFound" xml:space="preserve">
+    <value>Restaurante não encontrado.</value>
+  </data>
   <data name="UserAlreadyExists" xml:space="preserve">
     <value>Usuário já existente.</value>
   </data>

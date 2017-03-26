@@ -97,6 +97,15 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restaurante não encontrado..
+        /// </summary>
+        public static string RestaurantNotFound {
+            get {
+                return ResourceManager.GetString("RestaurantNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usuário já existente..
         /// </summary>
         public static string UserAlreadyExists {

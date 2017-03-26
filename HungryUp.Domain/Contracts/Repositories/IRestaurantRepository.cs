@@ -8,5 +8,6 @@ namespace HungryUp.Domain.Contracts.Repositories
     {
         IList<Restaurant> GetAll();
         IList<Restaurant> GetWeekAvaiable(DateTime startWeek, DateTime endWeek);
+        Restaurant GetById(long restaurantId);
     }
 }

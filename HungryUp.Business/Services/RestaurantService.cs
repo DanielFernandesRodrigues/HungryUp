@@ -27,6 +27,11 @@ namespace HungryUp.Business.Services
             DateTime endWeek = startWeek.AddDays((int)DayOfWeek.Saturday);
             return _repository.GetWeekAvaiable(startWeek, endWeek);
         }
+        
+        public Restaurant GetById(long restaurantId)
+        {
+            return _repository.GetById(restaurantId);
+        }
 
         public void Dispose()
         {

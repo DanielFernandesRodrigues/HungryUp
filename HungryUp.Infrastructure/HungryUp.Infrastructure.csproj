@@ -50,6 +50,7 @@
     <Compile Include="Data\Map\ChoiceHistoryMap.cs" />
     <Compile Include="Data\Map\RestaurantMap.cs" />
     <Compile Include="Data\Map\UserMap.cs" />
+    <Compile Include="Data\Map\VoteMap.cs" />
     <Compile Include="Migrations\201703251445519_initial.cs" />
     <Compile Include="Migrations\201703251445519_initial.Designer.cs">
       <DependentUpon>201703251445519_initial.cs</DependentUpon>
@@ -59,12 +60,17 @@
     <Compile Include="Repositories\ChoiceHistoryRepository.cs" />
     <Compile Include="Repositories\RestaurantRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\VoteRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HungryUp.Common\HungryUp.Common.csproj">
+      <Project>{3a074552-a8f2-4c7d-97a6-2fbfbde32809}</Project>
+      <Name>HungryUp.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HungryUp.Domain\HungryUp.Domain.csproj">
       <Project>{319b9762-5f75-4215-842c-283fd09fca80}</Project>
       <Name>HungryUp.Domain</Name>

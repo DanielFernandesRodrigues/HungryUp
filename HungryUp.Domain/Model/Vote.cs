@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameEndpoints.Common.Validations;
+using HungryUp.Common.Resources;
+using System;
 
 namespace HungryUp.Domain.Model
 {
@@ -7,5 +9,21 @@ namespace HungryUp.Domain.Model
         public long VoteId { get; set; }
         public DateTime Date { get; set; }
         public User User { get; set; }
+        public Restaurant Restaurant { get; set; }
+
+        protected Vote() { }
+
+        public Vote(User user, Restaurant restaurant)
+        {
+            this.Date = DateTime.Now;
+            this.User = user;
+            this.Restaurant = restaurant;
+        }
+
+        public void Validate()
+        {
+            AssertionConcern.AssertArgumentNotNull(this.User, ErrorMessages.UserNotFound);
+            AssertionConcern.AssertArgumentNotNull(this.Restaurant, ErrorMessages.RestaurantNotFound);
+        }
     }
 }

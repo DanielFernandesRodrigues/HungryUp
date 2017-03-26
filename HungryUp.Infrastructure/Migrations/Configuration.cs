@@ -1,5 +1,6 @@
 namespace HungryUp.Infrastructure.Migrations
 {
+    using GameEndpoints.Common.Validations;
     using HungryUp.Domain.Model;
     using System.Data.Entity.Migrations;
 
@@ -25,6 +26,9 @@ namespace HungryUp.Infrastructure.Migrations
                 , new Restaurant("Etnias") { RestaurantId = 10 }
                 , new Restaurant("Dariu Lanches") { RestaurantId = 11 }
                 );
+
+            context.Users.AddOrUpdate(p => p.Name,
+                new User("DbServer Test", "dbserver_test@dbserver.com", PasswordAssertionConcern.Encrypt("dbserver_teste")));
         }
     }
 }

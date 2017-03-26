@@ -32,6 +32,11 @@ namespace HungryUp.Infrastructure.Repositories
                 Where(s => !_context.ChoiceHistories.
                     Where(x => x.Date >= startWeek && x.Date <= endWeek && x.Restaurant.RestaurantId == s.RestaurantId).Any()).ToList();
         }
+        
+        public Restaurant GetById(long restaurantId)
+        {
+            return _context.Restaurants.Where(x => x.RestaurantId == restaurantId).FirstOrDefault();
+        }
 
         public void Dispose()
         {

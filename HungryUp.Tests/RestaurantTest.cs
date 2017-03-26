@@ -7,6 +7,7 @@ using HungryUp.Infrastructure.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace HungryUp.Tests
 {
@@ -30,7 +31,7 @@ namespace HungryUp.Tests
         }
 
         [TestMethod]
-        public void GetRestaurants()
+        public void GetAllRestaurants()
         {
             IList<Restaurant> restaurants = _service.GetAll();
             Assert.IsTrue(restaurants.Any());
@@ -41,6 +42,22 @@ namespace HungryUp.Tests
         {
             IList<Restaurant> restaurants = _service.GetWeekAvaiable();
             Assert.IsTrue(restaurants.Any());
+        }
+
+        [TestMethod]
+        public void GetRestaurantById()
+        {
+            try
+            {
+                IList<Restaurant> restaurants = _service.GetAll();
+                Assert.IsTrue(restaurants.Any());
+                Restaurant restaurant = _service.GetById(restaurants.FirstOrDefault().RestaurantId);
+                Assert.IsNotNull(restaurant);
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail(ex.Message);
+            }
         }
     }
 }
