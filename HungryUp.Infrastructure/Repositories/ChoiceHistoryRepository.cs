@@ -30,6 +30,24 @@ namespace HungryUp.Infrastructure.Repositories
                 .FirstOrDefault();
         }
 
+        public ChoiceHistory Add(ChoiceHistory choiceHistory)
+        {
+            _context.ChoiceHistories.Add(choiceHistory);
+            _context.SaveChanges();
+            return choiceHistory;
+        }
+
+        public void CleanChoiceDay()
+        {
+            var choice = _context.ChoiceHistories.Where(x => DbFunctions.TruncateTime(x.Date) == DbFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
+            if (choice != null)
+                _context.ChoiceHistories.Remove(choice);
+            var votes = _context.Votes.Where(x => DbFunctions.TruncateTime(x.Date) == DbFunctions.TruncateTime(DateTime.Now)).ToList();
+            if (votes != null && votes.Count() > 0)
+                _context.Votes.RemoveRange(votes);
+            _context.SaveChanges();
+        }
+
         public void Dispose()
         {
             _context.Dispose();

@@ -79,6 +79,15 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Votação encerrada. Restaurante escolhido: {0}(Desempate aleatório)..
+        /// </summary>
+        public static string VoteFinishWithDraw {
+            get {
+                return ResourceManager.GetString("VoteFinishWithDraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Você já votou hoje e escolheu {0}..
         /// </summary>
         public static string YouAlreadyVoteToday {

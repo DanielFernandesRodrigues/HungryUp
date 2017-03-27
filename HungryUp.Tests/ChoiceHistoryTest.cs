@@ -21,7 +21,9 @@ namespace HungryUp.Tests
         {
             AppDataContext _context = new AppDataContext();
             IChoiceHistoryRepository _repository = new ChoiceHistoryRepository(_context);
-            _service = new ChoiceHistoryService(_repository);
+            IVoteRepository _voteRepository = new VoteRepository(_context);
+            IRestaurantRepository _restaurantRepository = new RestaurantRepository(_context);
+            _service = new ChoiceHistoryService(_repository, _voteRepository, _restaurantRepository);
         }
 
         [TestCleanup]
@@ -40,6 +42,18 @@ namespace HungryUp.Tests
         public void TodaySessionIsOpen()
         {
             ChoiceHistory choiceHistory = _service.GetTodayChoiceHistory();
+        }
+        
+        [TestMethod]
+        public void RegisterChoiceHistory()
+        {
+            ChoiceHistory choiceHistory = _service.RegisterChoiceHistory();
+        }
+
+        [TestMethod]
+        public void ClearChoiceHistoryVotesDay()
+        {
+            _service.CleanChoiceHistoryVotesDay();
         }
     }
 }

@@ -123,6 +123,9 @@
   <data name="VoteFinish" xml:space="preserve">
     <value>Votação encerrada. Restaurante escolhido: {0}.</value>
   </data>
+  <data name="VoteFinishWithDraw" xml:space="preserve">
+    <value>Votação encerrada. Restaurante escolhido: {0}(Desempate aleatório).</value>
+  </data>
   <data name="YouAlreadyVoteToday" xml:space="preserve">
     <value>Você já votou hoje e escolheu {0}.</value>
   </data>

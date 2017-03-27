@@ -47,7 +47,19 @@ namespace HungryUp.Infrastructure.Repositories
             return _context.Votes.Where(x => DbFunctions.TruncateTime(x.Date) == DbFunctions.TruncateTime(date))
                 .Include(x => x.Restaurant)
                 .GroupBy(x => x.Restaurant.Name)
-                .Select(g => new ScoreBoard { Restaurant = g.Key, Votes = g.Count() }).ToList();
+                .Select(g => new ScoreBoard { Restaurant = g.Key, Votes = g.Count() })
+                .OrderByDescending(x => x.Votes)
+                .ToList();
+        }
+
+        public IList<ScoreBoard> GetAllVotesByDateGroupByRestaurantId(DateTime date)
+        {
+            return _context.Votes.Where(x => DbFunctions.TruncateTime(x.Date) == DbFunctions.TruncateTime(date))
+                .Include(x => x.Restaurant)
+                .GroupBy(x => x.Restaurant.RestaurantId)
+                .Select(g => new ScoreBoard { RestaurantId = g.Key, Votes = g.Count() })
+                .OrderByDescending(x => x.Votes)
+                .ToList();
         }
 
         public void Dispose()

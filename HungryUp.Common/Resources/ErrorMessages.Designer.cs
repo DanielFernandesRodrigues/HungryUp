@@ -97,6 +97,15 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não ouve votações na data atual..
+        /// </summary>
+        public static string NoVotesInTheCurrentDate {
+            get {
+                return ResourceManager.GetString("NoVotesInTheCurrentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Restaurante não encontrado..
         /// </summary>
         public static string RestaurantNotFound {

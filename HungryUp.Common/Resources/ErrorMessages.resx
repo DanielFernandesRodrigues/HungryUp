@@ -129,6 +129,9 @@
   <data name="InvalidUserPassword" xml:space="preserve">
     <value>Senha informada está incorreta.</value>
   </data>
+  <data name="NoVotesInTheCurrentDate" xml:space="preserve">
+    <value>Não ouve votações na data atual.</value>
+  </data>
   <data name="RestaurantNotFound" xml:space="preserve">
     <value>Restaurante não encontrado.</value>
   </data>

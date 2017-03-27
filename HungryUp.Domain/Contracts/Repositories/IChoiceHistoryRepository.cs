@@ -8,5 +8,7 @@ namespace HungryUp.Domain.Contracts.Repositories
     {
         IList<ChoiceHistory> GetFromCurrentWeek(DateTime startWeek, DateTime endWeek);
         ChoiceHistory GetFromDate(DateTime date);
+        ChoiceHistory Add(ChoiceHistory choiceHistory);
+        void CleanChoiceDay();
     }
 }

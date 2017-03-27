@@ -9,6 +9,7 @@ namespace HungryUp.Domain.Contracts.Repositories
         Vote GetVote(DateTime date, User user);
         IList<Vote> GetAllVotesByDate(DateTime date);
         IList<ScoreBoard> GetAllVotesByDateGroupByRestaurant(DateTime date);
+        IList<ScoreBoard> GetAllVotesByDateGroupByRestaurantId(DateTime date);
         Vote RegisterVote(Vote vote);
     }
 }

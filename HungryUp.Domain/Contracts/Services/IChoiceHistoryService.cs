@@ -8,5 +8,7 @@ namespace HungryUp.Domain.Contracts.Services
     {
         ChoiceHistory GetTodayChoiceHistory();
         IList<ChoiceHistory> GetFromCurrentWeek();
+        ChoiceHistory RegisterChoiceHistory();
+        void CleanChoiceHistoryVotesDay();
     }
 }

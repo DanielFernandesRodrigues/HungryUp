@@ -6,17 +6,21 @@ using System.Web.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using HungryUp.Mvc.Schedule;
+using System.Configuration;
+using Quartz;
 
 namespace HungryUp.Mvc.Controllers
 {
     [Authorize]
     public class HomeController : Controller
     {
-        IChoiceHistoryService _choiceService;
-        IVoteService _voteService;
-        IRestaurantService _restaurantService;
+        private IChoiceHistoryService _choiceService;
+        private IVoteService _voteService;
+        private IRestaurantService _restaurantService;
+        private IScheduler _scheduler;
 
-        public HomeController(IChoiceHistoryService choiceService, IVoteService voteService, IRestaurantService restaurantService)
+        public HomeController(IChoiceHistoryService choiceService, IVoteService voteService, IRestaurantService restaurantService, IScheduler scheduler)
         {
             this._choiceService = choiceService;
             this._voteService = voteService;
@@ -33,7 +37,10 @@ namespace HungryUp.Mvc.Controllers
                 model.ScoreBoard = _voteService.GetAllTodayVotesGroupByRestaurant();
 
                 if (model.ChoiceHistory != null)
-                    throw new Exception(string.Format(CommonMessages.VoteFinish, model.ChoiceHistory.Restaurant.Name));
+                {
+                    string message = model.ChoiceHistory.Draw ? CommonMessages.VoteFinishWithDraw : CommonMessages.VoteFinish;
+                    throw new Exception(string.Format(message, model.ChoiceHistory.Restaurant.Name));
+                }
 
                 if (model.ChoiceHistory != null || model.Vote != null)
                     throw new Exception(string.Format(CommonMessages.YouAlreadyVoteToday, model.Vote.Restaurant.Name));
@@ -53,6 +60,7 @@ namespace HungryUp.Mvc.Controllers
         {
             try
             {
+                NotificationScheduler.Start();
                 Vote vote = _voteService.RegisterVote(User.Identity.Name, id);
             }
             catch (Exception ex)
