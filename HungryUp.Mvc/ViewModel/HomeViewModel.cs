@@ -1,4 +1,5 @@
 ﻿using HungryUp.Domain.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -13,11 +14,18 @@ namespace HungryUp.Mvc.ViewModel
         public string TitleMessage { get; set; }
         public string HourComplete { get; set; }
         public string DateNow { get; set; }
+        public string ScoreBoardJson { get; set; }
 
         public void SetTimeInteval(int hour, int minute)
         {
             DateNow = DateTime.Now.ToString("HH:mm:ss");
             HourComplete = string.Format("{0}:{1}:00", hour.ToString().PadLeft(2, '0'), minute.ToString().PadLeft(2, '0'));
+        }
+
+        internal void SetListToJson()
+        {
+            if (this.ScoreBoard != null && this.ScoreBoard.Count > 0)
+                this.ScoreBoardJson = JsonConvert.SerializeObject(this.ScoreBoard);
         }
     }
 }

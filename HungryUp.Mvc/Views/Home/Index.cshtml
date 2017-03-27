@@ -33,7 +33,7 @@
 <div class="row">
     @if (Model.Restaurants != null && Model.Restaurants.Count > 0)
     {
-        <div class="col-md-6">
+        <div class="col-md-6 table-restaurant">
             <h4>@LabelText.AvaiableRestaraunts</h4>
             <table style="width:100%;">
                 <tr>
@@ -53,39 +53,93 @@
         </div>
     }
 
-    @if (Model.ScoreBoard != null && Model.ScoreBoard.Count > 0)
-    {
-        <div class="col-md-6">
-            <h4>@LabelText.ScoreBoard</h4>
-            <table style="width:100%;">
+    <div class="col-md-6" id="scoreboard" style="display:none;">
+        <h4>@LabelText.ScoreBoard</h4>
+        <table id="myDataTable" class="table display table-striped table-vh-center myDataTable">
+            <thead class="myHead">
                 <tr>
                     <th>@LabelText.Restaurant</th>
                     <th style="text-align:center">@LabelText.Votes</th>
                 </tr>
-                @foreach (var item in Model.ScoreBoard)
-                {
-                    <tr>
-                        <td>@item.Restaurant</td>
-                        <td style="text-align:center">@item.Votes</td>
-                    </tr>
-                }
-            </table>
-        </div>
-    }
+            </thead>
+            <tbody class="myBody"></tbody>
+        </table>
+    </div>
+
+</div>
+<div class="container">
+    <ul id="discussion"></ul>
 </div>
 
 @section Scripts{
-    <script src="~/Scripts/function.js"></script>
+    @Scripts.Render("~/bundles/home")
     <script type="text/javascript">
         $(document).ready(function () {
             if ('@countdownAvaible' == 'yes') {
                 countdown("countdown", '@dateNow', '@hourComplete', tempoExpirado);
             }
+
+            var score = '@Html.Raw(Model.ScoreBoardJson)';
+            var scoreList;
+            if (score)
+                scoreList = JSON.parse(score);
+
+            var table = $('#myDataTable');
+
+            table.dataTable({
+                "bLengthChange": false,
+                paging: false,
+                searching: false,
+                ordering: false,
+                select: false,
+                info: false,
+                "oLanguage":
+                {
+                    "sEmptyTable": " ",
+                    "sZeroRecords": " "
+                },
+                columns: [
+                    { data: 'Restaurant' },
+                    { data: 'Votes', className: "text-center" }
+                ]
+            });
+            showTableScore(scoreList);
         });
+
         function tempoExpirado() {
             var url = '@Url.Action("Index", "Home")';
-            console.log(url);
             window.location.href = url;
         }
+
+        function showTableScore(scoreList) {
+            if (scoreList) {
+                var table = $('#myDataTable');
+                table.dataTable()._fnClearTable();
+                table.dataTable().fnAddData(scoreList);
+                $("#scoreboard").slideDown("slow");
+            } else {
+                $("#scoreboard").slideUp("slow");
+            }
+        }
+    </script>
+    <script src="/signalr/hubs"></script>
+    <script type="text/javascript">
+        $(function () {
+            var score = $.connection.scoreHub;
+            score.client.broadcastMessage = function (scoreBoard) {
+                if (scoreBoard) {
+                    if (scoreBoard === "voteEnding") {
+                        tempoExpirado();
+                    } else {
+                        scoreList = JSON.parse(scoreBoard);
+                        showTableScore(scoreList);
+                    }
+                }
+            };
+
+            $.connection.hub.start().done(function () {
+
+            });
+        });
     </script>
 }

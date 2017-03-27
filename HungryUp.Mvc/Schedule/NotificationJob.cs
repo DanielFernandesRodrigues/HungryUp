@@ -16,6 +16,7 @@ namespace HungryUp.Mvc.Schedule
         {
             NotificationScheduler.RemoveJobs();
             _service.RegisterChoiceHistory();
+            HungryUp.Mvc.Helpers.ScoreHub.Static_Send("voteEnding");
         }
     }
 }

@@ -61,7 +61,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Validação de e-mail está com erro..
+        ///   Looks up a localized string similar to E-mail validation has error..
         /// </summary>
         public static string EmailValidateError {
             get {

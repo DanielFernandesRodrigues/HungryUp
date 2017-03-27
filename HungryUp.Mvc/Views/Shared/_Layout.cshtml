@@ -18,15 +18,18 @@
                 </button>
                 @Html.ActionLink("HungryUp", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (User.Identity.IsAuthenticated)
-                    {
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Clean votes", "CleanVotes", "Home")</li>
                         <li>@Html.ActionLink("Logout", "logout", "admin")</li>
-                    }
-                </ul>
-            </div>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">                        
+                        <li class="user-name">@User.Identity.Name</li>
+                    </ul>
+                </div>
+            }
         </div>
     </div>
     <div class="container body-content">

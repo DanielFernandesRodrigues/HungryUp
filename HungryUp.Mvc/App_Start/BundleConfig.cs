@@ -23,6 +23,13 @@ namespace HungryUp.Mvc
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/home").Include(
+                         "~/Scripts/jquery-1.10.2.min.js"
+                        ,"~/Scripts/function.js"
+                        ,"~/Scripts/jquery.signalR-2.2.1.js"
+                        ,"~/Scripts/jquery.dataTables.min.js"));
+
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

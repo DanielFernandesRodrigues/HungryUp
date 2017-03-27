@@ -15,3 +15,22 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.text-center{
+    text-align: center;
+}
+
+.table-restaurant{
+    border-radius: 5px;
+    border-color: lightgray;
+    border-width: 2px;
+    border-style: solid;
+    padding-bottom: 5px;
+}
+
+.user-name{
+    color: gainsboro;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}

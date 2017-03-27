@@ -30,6 +30,7 @@ namespace HungryUp.Mvc.Controllers
                 model.ChoiceHistory = _choiceService.GetTodayChoiceHistory();
                 model.Vote = _voteService.GetTodayVote(User.Identity.Name);
                 model.ScoreBoard = _voteService.GetAllTodayVotesGroupByRestaurant();
+                model.SetListToJson();
 
                 if (NotificationScheduler.TriggerAlreadySchedule())
                     model.SetTimeInteval(NotificationScheduler.hour, NotificationScheduler.minute);
@@ -60,6 +61,11 @@ namespace HungryUp.Mvc.Controllers
             {
                 NotificationScheduler.Start();
                 Vote vote = _voteService.RegisterVote(User.Identity.Name, id);
+
+                HomeViewModel model = new HomeViewModel();
+                model.ScoreBoard = _voteService.GetAllTodayVotesGroupByRestaurant();
+                model.SetListToJson();
+                HungryUp.Mvc.Helpers.ScoreHub.Static_Send(model.ScoreBoardJson);
             }
             catch (Exception ex)
             {
