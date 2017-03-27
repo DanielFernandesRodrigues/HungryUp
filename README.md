@@ -2,8 +2,9 @@
 System for a democratically choice of a restaurant
 
 Projeto .NET que segue padrões de TDD e DDD.
-Injeção de Dependências são feitas em um assembly exclusivo desta forma a camada de apresentação desconhece implementações de business e repostory.
-É utilizado a biblioteca Quarz para possibilitar o agendamento de execução de tarefas, neste caso, registrar na base de dados o restaurante mais votado antes do meio dia.
+Injeção de Dependências são feitas em um assembly exclusivo desta forma a camada de apresentação desconhece implementações de business e repository.
+Camada de apresentação foi desenvolvida em MVC.
+É utilizado a biblioteca Quartz para possibilitar o agendamento de execução de tarefas, neste caso, registrar na base de dados o restaurante mais votado antes do meio dia.
 Também foi utilizada a biblioteca SignalR para que os usuários logados possam acompanhar em tempo real a votação dos seus colegas.
 Entity Framework é o responsável por gerenciar a camada de repositório, desta forma, através do CodeFirst é possivel gerar todo o schema da base de dados.
 
