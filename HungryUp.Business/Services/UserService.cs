@@ -27,7 +27,7 @@ namespace HungryUp.Business.Services
         public User Add(string name, string email, string password)
         {
             User user = GetByEmail(email);
-            AssertionConcern.AssertArgumentFalse(user != null, ErrorMessages.UserAlreadyExists);
+            AssertionConcern.AssertArgumentFalse(user != null, ErrorMessages.UserAlreadyExist);
 
             user = new User(name, email, password);
             user.ValidateCadastration();

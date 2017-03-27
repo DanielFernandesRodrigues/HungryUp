@@ -88,6 +88,15 @@ namespace HungryUp.Mvc.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time left for voting.
+        /// </summary>
+        public static string TimeLeftForVoting {
+            get {
+                return ResourceManager.GetString("TimeLeftForVoting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vote.
         /// </summary>
         public static string Vote {

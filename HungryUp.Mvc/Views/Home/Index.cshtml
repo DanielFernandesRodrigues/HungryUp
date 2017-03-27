@@ -3,10 +3,33 @@
 @model HomeViewModel
 @{
     ViewBag.Title = "Hungry";
+    string message = "";
+    var votoMessage = TempData["VoteMessage"];
+    if (votoMessage != null)
+    {
+        message = votoMessage.ToString();
+    }
+    var hourComplete = Model.HourComplete;
+    var dateNow = Model.DateNow;
+    string countdownAvaible = "no";
+    if (!string.IsNullOrEmpty(dateNow) && !string.IsNullOrEmpty(hourComplete))
+    {
+        countdownAvaible = "yes";
+    }
 }
 
 <h3>@Model.TitleMessage</h3>
 <hr />
+@if (!string.IsNullOrEmpty(message))
+{
+    <h5>@message</h5>
+    <br />
+}
+@if (countdownAvaible == "yes")
+{
+    <h5 style="font-weight:bold;">@LabelText.TimeLeftForVoting <span id="countdown"></span></h5>
+}
+
 <div class="row">
     @if (Model.Restaurants != null && Model.Restaurants.Count > 0)
     {
@@ -22,14 +45,14 @@
                     <tr>
                         <td>@item.Name</td>
                         <td>
-                            @Html.ActionLink("Vote", "Vote", new { id = @item.RestaurantId}, new {@class = "btn btn-default", @style = "width:100%"})
+                            @Html.ActionLink("Vote", "Vote", new { id = @item.RestaurantId }, new { @class = "btn btn-default", @style = "width:100%" })
                         </td>
                     </tr>
                 }
             </table>
         </div>
     }
-    
+
     @if (Model.ScoreBoard != null && Model.ScoreBoard.Count > 0)
     {
         <div class="col-md-6">
@@ -39,7 +62,8 @@
                     <th>@LabelText.Restaurant</th>
                     <th style="text-align:center">@LabelText.Votes</th>
                 </tr>
-                @foreach (var item in Model.ScoreBoard) {
+                @foreach (var item in Model.ScoreBoard)
+                {
                     <tr>
                         <td>@item.Restaurant</td>
                         <td style="text-align:center">@item.Votes</td>
@@ -49,3 +73,19 @@
         </div>
     }
 </div>
+
+@section Scripts{
+    <script src="~/Scripts/function.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ('@countdownAvaible' == 'yes') {
+                countdown("countdown", '@dateNow', '@hourComplete', tempoExpirado);
+            }
+        });
+        function tempoExpirado() {
+            var url = '@Url.Action("Index", "Home")';
+            console.log(url);
+            window.location.href = url;
+        }
+    </script>
+}

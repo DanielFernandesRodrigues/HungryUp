@@ -61,7 +61,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Votação aberta. Por favor, escolha uma das opções abaixo:.
+        ///   Looks up a localized string similar to Voting is open. Please, chose one of below:.
         /// </summary>
         public static string ChooseYourFavorite {
             get {
@@ -70,7 +70,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Votação encerrada. Restaurante escolhido: {0}..
+        ///   Looks up a localized string similar to Voting is finished. Chosen Restaurant: {0}..
         /// </summary>
         public static string VoteFinish {
             get {
@@ -79,7 +79,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Votação encerrada. Restaurante escolhido: {0}(Desempate aleatório)..
+        ///   Looks up a localized string similar to Voting is finished. Chosen Restaurant: {0}(Randomly chosen)..
         /// </summary>
         public static string VoteFinishWithDraw {
             get {
@@ -88,7 +88,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Você já votou hoje e escolheu {0}..
+        ///   Looks up a localized string similar to You already vote today and chose {0}..
         /// </summary>
         public static string YouAlreadyVoteToday {
             get {

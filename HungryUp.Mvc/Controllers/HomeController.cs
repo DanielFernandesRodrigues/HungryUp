@@ -4,11 +4,7 @@ using HungryUp.Domain.Model;
 using HungryUp.Mvc.ViewModel;
 using System.Web.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using HungryUp.Mvc.Schedule;
-using System.Configuration;
-using Quartz;
 
 namespace HungryUp.Mvc.Controllers
 {
@@ -18,9 +14,8 @@ namespace HungryUp.Mvc.Controllers
         private IChoiceHistoryService _choiceService;
         private IVoteService _voteService;
         private IRestaurantService _restaurantService;
-        private IScheduler _scheduler;
 
-        public HomeController(IChoiceHistoryService choiceService, IVoteService voteService, IRestaurantService restaurantService, IScheduler scheduler)
+        public HomeController(IChoiceHistoryService choiceService, IVoteService voteService, IRestaurantService restaurantService)
         {
             this._choiceService = choiceService;
             this._voteService = voteService;
@@ -35,6 +30,9 @@ namespace HungryUp.Mvc.Controllers
                 model.ChoiceHistory = _choiceService.GetTodayChoiceHistory();
                 model.Vote = _voteService.GetTodayVote(User.Identity.Name);
                 model.ScoreBoard = _voteService.GetAllTodayVotesGroupByRestaurant();
+
+                if (NotificationScheduler.TriggerAlreadySchedule())
+                    model.SetTimeInteval(NotificationScheduler.hour, NotificationScheduler.minute);
 
                 if (model.ChoiceHistory != null)
                 {
@@ -62,6 +60,20 @@ namespace HungryUp.Mvc.Controllers
             {
                 NotificationScheduler.Start();
                 Vote vote = _voteService.RegisterVote(User.Identity.Name, id);
+            }
+            catch (Exception ex)
+            {
+                TempData["VoteMessage"] = ex.Message;
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult CleanVotes()
+        {
+            try
+            {
+                NotificationScheduler.RemoveJobs();
+                _choiceService.CleanChoiceHistoryVotesDay();
             }
             catch (Exception ex)
             {

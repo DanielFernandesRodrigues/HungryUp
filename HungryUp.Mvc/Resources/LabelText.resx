@@ -126,6 +126,9 @@
   <data name="ScoreBoard" xml:space="preserve">
     <value>ScoreBoard of Votes</value>
   </data>
+  <data name="TimeLeftForVoting" xml:space="preserve">
+    <value>Time left for voting</value>
+  </data>
   <data name="Vote" xml:space="preserve">
     <value>Vote</value>
   </data>

@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="InvalidCredentials" xml:space="preserve">
-    <value>Dados de autenticação inválidos.</value>
+    <value>Invalid Credentials.</value>
   </data>
   <data name="InvalidEmail" xml:space="preserve">
-    <value>E-mail informado é inválido.</value>
+    <value>E-mail is invalid.</value>
   </data>
   <data name="InvalidUserName" xml:space="preserve">
-    <value>Nome do usuário é inválido.</value>
+    <value>User name is invalid.</value>
   </data>
   <data name="InvalidUserPassword" xml:space="preserve">
-    <value>Senha informada está incorreta.</value>
+    <value>User password is invalid.</value>
   </data>
-  <data name="NoVotesInTheCurrentDate" xml:space="preserve">
-    <value>Não ouve votações na data atual.</value>
+  <data name="NoVotesOnTheCurrentDate" xml:space="preserve">
+    <value>No votes on current date.</value>
   </data>
   <data name="RestaurantNotFound" xml:space="preserve">
-    <value>Restaurante não encontrado.</value>
+    <value>Restaurant not found.</value>
   </data>
-  <data name="UserAlreadyExists" xml:space="preserve">
-    <value>Usuário já existente.</value>
+  <data name="UserAlreadyExist" xml:space="preserve">
+    <value>User already exist.</value>
   </data>
   <data name="UserNotFound" xml:space="preserve">
-    <value>Usuário não encontrado.</value>
+    <value>User not found.</value>
   </data>
   <data name="YouAlreadyVoteToday" xml:space="preserve">
-    <value>Você já votou hoje.</value>
+    <value>You already vote today.</value>
   </data>
 </root>

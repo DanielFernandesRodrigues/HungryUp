@@ -61,7 +61,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dados de autenticação inválidos..
+        ///   Looks up a localized string similar to Invalid Credentials..
         /// </summary>
         public static string InvalidCredentials {
             get {
@@ -70,7 +70,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to E-mail informado é inválido..
+        ///   Looks up a localized string similar to E-mail is invalid..
         /// </summary>
         public static string InvalidEmail {
             get {
@@ -79,7 +79,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nome do usuário é inválido..
+        ///   Looks up a localized string similar to User name is invalid..
         /// </summary>
         public static string InvalidUserName {
             get {
@@ -88,7 +88,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Senha informada está incorreta..
+        ///   Looks up a localized string similar to User password is invalid..
         /// </summary>
         public static string InvalidUserPassword {
             get {
@@ -97,16 +97,16 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Não ouve votações na data atual..
+        ///   Looks up a localized string similar to No votes on current date..
         /// </summary>
-        public static string NoVotesInTheCurrentDate {
+        public static string NoVotesOnTheCurrentDate {
             get {
-                return ResourceManager.GetString("NoVotesInTheCurrentDate", resourceCulture);
+                return ResourceManager.GetString("NoVotesOnTheCurrentDate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Restaurante não encontrado..
+        ///   Looks up a localized string similar to Restaurant not found..
         /// </summary>
         public static string RestaurantNotFound {
             get {
@@ -115,16 +115,16 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Usuário já existente..
+        ///   Looks up a localized string similar to User already exist..
         /// </summary>
-        public static string UserAlreadyExists {
+        public static string UserAlreadyExist {
             get {
-                return ResourceManager.GetString("UserAlreadyExists", resourceCulture);
+                return ResourceManager.GetString("UserAlreadyExist", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Usuário não encontrado..
+        ///   Looks up a localized string similar to User not found..
         /// </summary>
         public static string UserNotFound {
             get {
@@ -133,7 +133,7 @@ namespace HungryUp.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Você já votou hoje..
+        ///   Looks up a localized string similar to You already vote today..
         /// </summary>
         public static string YouAlreadyVoteToday {
             get {

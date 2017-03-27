@@ -15,8 +15,8 @@ namespace HungryUp.Domain.Model
 
         public void SetMostVoted(IList<ScoreBoard> scoreBoard)
         {
-            AssertionConcern.AssertArgumentNotNull(scoreBoard, ErrorMessages.NoVotesInTheCurrentDate);
-            AssertionConcern.AssertArgumentTrue(scoreBoard.Count() > 0, ErrorMessages.NoVotesInTheCurrentDate);
+            AssertionConcern.AssertArgumentNotNull(scoreBoard, ErrorMessages.NoVotesOnTheCurrentDate);
+            AssertionConcern.AssertArgumentTrue(scoreBoard.Count() > 0, ErrorMessages.NoVotesOnTheCurrentDate);
 
             var itemMaxVote = scoreBoard.Max(y => y.Votes);
             IList<ScoreBoard> itemsMaxVotes = scoreBoard.Where(x => x.Votes == itemMaxVote).ToList();

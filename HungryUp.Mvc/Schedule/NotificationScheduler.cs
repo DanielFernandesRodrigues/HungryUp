@@ -10,17 +10,18 @@ namespace HungryUp.Mvc.Schedule
     public static class NotificationScheduler
     {
         public static IScheduler _scheduler;
+        public static int hour;
+        public static int minute;
 
         public static void Start()
         {
             if (TriggerAlreadySchedule())
                 return;
 
-            int hour = Convert.ToInt32(ConfigurationManager.AppSettings["HourEnd"]);
-            int minute = Convert.ToInt32(ConfigurationManager.AppSettings["MinuteEnd"]);
+            hour = Convert.ToInt32(ConfigurationManager.AppSettings["HourEnd"]);
+            minute = Convert.ToInt32(ConfigurationManager.AppSettings["MinuteEnd"]);
             bool isTest = Convert.ToBoolean(ConfigurationManager.AppSettings["ScheduleTest"]);
 
-            
             var job = JobBuilder.Create<NotificationJob>()
             .Build();
             
@@ -47,23 +48,20 @@ namespace HungryUp.Mvc.Schedule
             _scheduler.Start();
         }
 
-        private static bool TriggerAlreadySchedule()
+        public static bool TriggerAlreadySchedule()
         {
-            var sc = _scheduler.GetTriggerKeys(GroupMatcher<TriggerKey>.AnyGroup()).FirstOrDefault();
-            return sc != null;
+            return _scheduler.GetTriggerKeys(GroupMatcher<TriggerKey>.AnyGroup()).FirstOrDefault() != null;
         }
 
         public static void RemoveJobs()
         {
-            var scheduler = _scheduler;
-            
-            var allTriggerKeys = scheduler.GetTriggerKeys(GroupMatcher<TriggerKey>.AnyGroup());
+            var allTriggerKeys = _scheduler.GetTriggerKeys(GroupMatcher<TriggerKey>.AnyGroup());
 
             foreach (var triggerKey in allTriggerKeys)
             {
-                ITrigger trigger = scheduler.GetTrigger(triggerKey);
-                var allJobKeys = scheduler.GetJobDetail(trigger.JobKey);
-                scheduler.UnscheduleJob(trigger.Key);
+                ITrigger trigger = _scheduler.GetTrigger(triggerKey);
+                var allJobKeys = _scheduler.GetJobDetail(trigger.JobKey);
+                _scheduler.UnscheduleJob(trigger.Key);
             }
         }
     }

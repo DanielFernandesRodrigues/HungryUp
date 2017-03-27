@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ChooseYourFavorite" xml:space="preserve">
-    <value>Votação aberta. Por favor, escolha uma das opções abaixo:</value>
+    <value>Voting is open. Please, chose one of below:</value>
   </data>
   <data name="VoteFinish" xml:space="preserve">
-    <value>Votação encerrada. Restaurante escolhido: {0}.</value>
+    <value>Voting is finished. Chosen Restaurant: {0}.</value>
   </data>
   <data name="VoteFinishWithDraw" xml:space="preserve">
-    <value>Votação encerrada. Restaurante escolhido: {0}(Desempate aleatório).</value>
+    <value>Voting is finished. Chosen Restaurant: {0}(Randomly chosen).</value>
   </data>
   <data name="YouAlreadyVoteToday" xml:space="preserve">
-    <value>Você já votou hoje e escolheu {0}.</value>
+    <value>You already vote today and chose {0}.</value>
   </data>
 </root>
